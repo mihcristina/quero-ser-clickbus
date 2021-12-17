@@ -21,7 +21,7 @@ struct MovieAPI {
 
     // MARK: - Internal Properties
     
-    static let key: String = "API_KEY" // COLOQUE SUA API_KEY DO TMDB AQUI
+    static let key: String = "752c11849747ed228980d57c056e8d7a" // COLOQUE SUA API_KEY DO TMDB AQUI
     static let version: Int = 3
     static let baseURL: String = "https://api.themoviedb.org/\(MovieAPI.version)"
     static let imageURL: String = "https://image.tmdb.org/t/p"
