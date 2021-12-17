@@ -44,4 +44,5 @@ struct MovieAPI {
         return "\(MovieAPI.baseURL)/movie/\(id)?api_key=\(MovieAPI.key)"
             + "&language=\(language)&append_to_response=videos,credits,recommendations"
     }
+
 }

@@ -33,7 +33,7 @@ class MovieCell: UITableViewCell {
         countCell.text = String(movie.voteCount)
         
         guard let posterPath = movie.posterPath else { return }
-        let imgPath = MovieAPI.build(image: posterPath, size: MovieAPI.ImageSize.w200)
+        let imgPath = MovieAPI.build(image: posterPath, size: MovieAPI.ImageSize.w300)
         if let url = URL(string:imgPath){
             imgCell.sd_imageIndicator = SDWebImageActivityIndicator.medium
             imgCell.sd_setImage(with: url)
