@@ -24,7 +24,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         getMovies(page: pages)
         tableView.dataSource = self
-        
+        tableView.rowHeight = 200
+        tableView.estimatedRowHeight = 200
     
         // EXEMPLO DE COMO OBTER OS DETALHES DE UM FILME
         
@@ -83,7 +84,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500
+        return 200
     }
 }
 
