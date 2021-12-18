@@ -57,7 +57,6 @@ class ViewController: UIViewController {
             section: .popular, page: 1,
             sucess: { [self] response in
                 guard let movie = response?.results else { return }
-                guard let movie = response?.results else { return }
                     self.movies.append(contentsOf: movie)
                 
                 DispatchQueue.main.async {
