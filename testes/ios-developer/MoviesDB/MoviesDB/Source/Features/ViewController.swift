@@ -22,34 +22,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         getMovies(page: pages)
+
         tableView.dataSource = self
         tableView.rowHeight = 200
         tableView.estimatedRowHeight = 200
-    
-        // EXEMPLO DE COMO OBTER OS DETALHES DE UM FILME
-        
-        MovieDetailsWorker().fetchMovieDetails(
-            of: 497582, // COLOQUE O ID DO FILME AQUI
-            sucess: { details in
-                guard let details = details else { return }
-                print(details)
-            },
-            failure: { error in
-                print(error!)
-            })
-        
-        
-        // EXEMPLO DE COMO OBTER A LISTA GÊNEROS
-        
-        GenreListWorker().fetchGenreList(
-            sucess: { response in
-                guard let genres = response?.genres else { return }
-                print(genres)
-            },
-            failure: { error in
-                print(error!)
-            })
     }
     
     func getMovies(page:Int){
@@ -57,16 +35,16 @@ class ViewController: UIViewController {
             section: .popular, page: 1,
             sucess: { [self] response in
                 guard let movie = response?.results else { return }
-                    self.movies.append(contentsOf: movie)
+
+                self.movies.append(contentsOf: movie)
                 
                 DispatchQueue.main.async {
-                                    self.tableView.reloadData()
-                                }
+                    self.tableView.reloadData()
+                }
             },
             failure: { error in
                 print(error!)
             })
-        
     }
 }
 
@@ -77,8 +55,10 @@ extension ViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)as! MovieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+
         cell.configCell(movie: movies[indexPath.row])
+
         return cell
     }
     

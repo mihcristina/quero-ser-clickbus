@@ -30,7 +30,7 @@ class MovieFocused: UIViewController {
     }
     
     func getFocusedMovie() {
-        guard let movieId = movie?.id else { return}
+        guard let movieId = movie?.id else { return }
         MovieDetailsWorker().fetchMovieDetails(
             of: movieId, // COLOQUE O ID DO FILME AQUI
             sucess: { details in
@@ -43,7 +43,6 @@ class MovieFocused: UIViewController {
                     professional = crew.name
                 }
                 
-                        
                 DispatchQueue.main.async {
                     self.budget.text = String(budget)
                     self.time.text = "\(time) min."
