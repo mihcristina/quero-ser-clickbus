@@ -9,6 +9,12 @@ import Foundation
 
 struct MovieDetails: Decodable {
     
+    let id: Int
+
+    let title: String
+
+    let overview: String
+    
     let budget: Double
     
     let revenue: Double

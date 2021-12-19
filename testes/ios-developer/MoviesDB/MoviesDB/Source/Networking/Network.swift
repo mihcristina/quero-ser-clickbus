@@ -19,7 +19,6 @@ protocol Networking {
 }
 
 class Network: Networking {
-    
     func request<T: Decodable>(data: RequestData,
                                decoder: DefaultDecoder<T>,
                                success: @escaping RequestSuccess<T>,
