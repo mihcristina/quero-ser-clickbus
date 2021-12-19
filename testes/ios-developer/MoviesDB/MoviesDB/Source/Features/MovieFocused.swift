@@ -29,13 +29,22 @@ class MovieFocused: UIViewController {
     
     //chama API
     func getFocusedMovie() {
-        guard let movieId = self.movieId else { return }
-
+        guard let movieId = self.movie?.id else { return }
         MovieDetailsWorker().fetchMovieDetails(
             of: movieId,
             sucess: { [self] details in
+                guard let details = details else { return }
+                
+                var getTime = ("\(details.runtime) minutos")
+                var getBudget = ("\(details.budget) dolars")
+                var getProfessional = ""
+                for cast in details.credits.cast{
+                    getProfessional += cast.name + ", "
+                }
                 DispatchQueue.main.async {
-                    self.movieDetails = details
+                    self.time.text = getTime
+                    self.budget.text = getBudget
+                    self.professional.text = getProfessional
                     
                 }
                 
