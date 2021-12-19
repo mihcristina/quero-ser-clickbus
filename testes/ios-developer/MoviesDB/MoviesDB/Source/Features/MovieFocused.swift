@@ -23,13 +23,11 @@ class MovieFocused: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        print(self.movie)
-        
         getFocusedMovie()
         configFocusedMovie()
     }
     
+    //chama API
     func getFocusedMovie() {
         guard let movieId = self.movieId else { return }
 
@@ -38,13 +36,17 @@ class MovieFocused: UIViewController {
             sucess: { [self] details in
                 DispatchQueue.main.async {
                     self.movieDetails = details
+                    
                 }
+                
             },
             failure: { error in
                 print(error!)
             })
     }
+     
     
+    // Substituindo informações do main pelas informações do Movie
     func configFocusedMovie() {
         self.focusedTitle.text = self.movie?.title
         self.overview.text = self.movie?.overview

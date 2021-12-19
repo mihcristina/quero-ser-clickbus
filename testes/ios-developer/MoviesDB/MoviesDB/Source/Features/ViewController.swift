@@ -13,12 +13,11 @@ class ViewController: UIViewController {
     
     let movieApi = MovieAPI()
     var movies = [Movie]()
-    let pages = 1
+    var pages = 1
     var movieFocused: Movie?
     
     @IBOutlet weak var tableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +26,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 200
         tableView.estimatedRowHeight = 200
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
 
     func getMovies(page: Int){
@@ -44,8 +44,8 @@ class ViewController: UIViewController {
         failure: { error in
             print(error!)
         })
-    
     }
+
 }
 
 
@@ -81,6 +81,9 @@ extension ViewController: UITableViewDataSource {
 
             vc.movie = cell.movie
         }
+        
     }
 }
+
+
 
