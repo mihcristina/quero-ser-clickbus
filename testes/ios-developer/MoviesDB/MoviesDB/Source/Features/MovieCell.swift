@@ -17,6 +17,7 @@ class MovieCell: UITableViewCell {
     
     var movie: Movie?
  
+    // configuração das celulas
     func configCell(movie: Movie){
         self.movie = movie
         

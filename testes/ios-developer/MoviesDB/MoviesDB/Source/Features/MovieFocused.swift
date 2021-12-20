@@ -35,8 +35,8 @@ class MovieFocused: UIViewController {
             sucess: { [self] details in
                 guard let details = details else { return }
                 
-                var getTime = ("\(details.runtime) minutos")
-                var getBudget = ("\(details.budget) dolars")
+                let getTime = ("\(details.runtime) minutos")
+                let getBudget = ("\(details.budget) dolars")
                 var getProfessional = ""
                 for cast in details.credits.cast{
                     getProfessional += cast.name + ", "
